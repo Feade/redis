@@ -3,7 +3,7 @@
 //
 
 #include <ctype.h>
-#include "string/string_util.h"
+#include "struct/string/string_util.h"
 
 std::string &StringUtil::ToLower(std::string &str) {
     for (int i = 0; i < str.size(); ++i) {

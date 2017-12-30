@@ -1,4 +1,4 @@
-## 安装编译
+## 安装编译工具
 ```
   安装 blade
   git clone https://github.com/chen3feng/typhoon-blade.git
