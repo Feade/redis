@@ -8,10 +8,12 @@
 int main() {
 
     std::cout << "test StringUtil::ToUpper\n";
-    std::string str1 = "Hello World\n";
-    std::cout << str1 << StringUtil::ToUpper(str1) << std::endl;
+    std::string str1 = "Hello World";
+    std::cout << str1 << std::endl;
+    std::cout << StringUtil::ToUpper(str1) << std::endl;
 
     std::cout << "test StringUtil::ToLower\n";
-    std::string str2 = "Hello World\n";
-    std::cout << str2 << StringUtil::ToLower(str2) << std::endl;
+    std::string str2 = "Hello World";
+    std::cout << str2 << std::endl;
+    std::cout << StringUtil::ToLower(str2) << std::endl;
 }
