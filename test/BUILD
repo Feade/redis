@@ -4,5 +4,20 @@ cc_binary(
     ],
     deps = ['//struct:redis_struct',
     ],
-    warning = "no",
+)
+
+cc_binary(
+    name = "test_list",
+    srcs = ['test_list.cpp',
+    ],
+    deps = ['//struct:redis_struct',
+    ],
+)
+
+cc_binary(
+    name = "test_object",
+    srcs = ['test_object.cpp',
+    ],
+    deps = ['//redis:redis_object',
+    ],
 )
