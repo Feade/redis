@@ -8,9 +8,7 @@
 
 class RawString : public RedisObject<REW_STRING, std::string> {
  public:
-    RawString(const std::string &str) : RedisObject(str) {
-        value_.resize(str.size());
-    }
+    RawString(const std::string &str) : RedisObject(str) {}
     RawString(const char *buf, int len): RawString(std::string(buf, len)) {}
     RawString(long long value) : RawString(std::to_string(value)) {}
     RawString(double value) :RawString(std::to_string(value)) {}
@@ -19,8 +17,8 @@ class RawString : public RedisObject<REW_STRING, std::string> {
 
 class EmbeddedString : public RedisObject<EMBEDDED_STRING, std::string> {
  public:
-    EmbeddedString(const char *buf, int len) : RedisObject(buf) { value_.resize(len); }
-    EmbeddedString(const std::string &str) : EmbeddedString(str.c_str(), str.size()) {}
+    EmbeddedString(const std::string &str) : RedisObject(str) {}
+    EmbeddedString(const char *buf, int len) : EmbeddedString(std::string(buf, len)) {}
     std::string &operator()() { return value_; }
 };
 

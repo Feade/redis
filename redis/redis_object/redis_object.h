@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#pragma pack (4) // 设置4字节对其
 #include <memory>
 #include <string>
 enum ObjectType{
@@ -13,27 +14,17 @@ enum ObjectType{
 
 class Object {
  public:
-    virtual ObjectType Type() = 0;
-    virtual void Print() = 0;
-    virtual ~Object(){}
+    uint32_t lru_ : 32; // 最后一次被访问的时间
 };
 
 template <ObjectType type, typename T>
 class RedisObject : public Object {
  public:
     RedisObject(T value) : value_(value) {}
-    ObjectType Type() override { return type; }
-    void Print() override {}
+    ObjectType Type() { return type; }
 
- protected:
-    unsigned lru_ : 32; // 最后一次被访问的时间
+ public:
     T value_;
 };
 
-//template <typename T>
-//class ListObject : public RedisObject {
-// public:
-//
-// private:
-//    std::list<T> value_;
-//};
+#pragma pack ()
