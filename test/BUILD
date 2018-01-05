@@ -21,3 +21,8 @@ cc_binary(
     deps = ['//redis:redis_object',
     ],
 )
+cc_binary(
+    name = "test_shared_ptr",
+    srcs = ['test_shared_ptr.cpp',
+    ],
+)
